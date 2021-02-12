@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ub
+    runs-on: ubuntu-latest
     services:
       selenium:
         image: selenium/standalone-chrome
