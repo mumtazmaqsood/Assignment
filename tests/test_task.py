@@ -1,9 +1,16 @@
 from selenium import webdriver
 import time
+<<<<<<< HEAD
 # from selenium.webdriver.common.by import By
 # from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 # from webdriver_manager.microsoft import IEDriverManager
+=======
+#from selenium.webdriver.common.by import By
+#from webdriver_manager.chrome import ChromeDriverManager
+#from webdriver_manager.firefox import GeckoDriverManager
+#from webdriver_manager.microsoft import IEDriverManager
+>>>>>>> 0b9772b75334d21374c1cfb62db0b8591c5cd586
 from selenium.webdriver.chrome.options import Options
 
 
@@ -18,7 +25,11 @@ class TestChrome():
     #     driver = webdriver.Chrome(ChromeDriverManager().install())
         # driver = webdriver.Ie(IEDriverManager().install())
         # driver = webdriver.Chrome()
+<<<<<<< HEAD
         # driver = webdriver.Chrome(ChromeDriverManager().install())
+=======
+        #driver = webdriver.Chrome(ChromeDriverManager().install())
+>>>>>>> 0b9772b75334d21374c1cfb62db0b8591c5cd586
 
         chrome_options = Options()
         chrome_options.add_argument('--headless')
