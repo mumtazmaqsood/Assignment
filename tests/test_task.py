@@ -1,10 +1,10 @@
-#from selenium import webdriver
-#import time
+from selenium import webdriver
+import time
 #from selenium.webdriver.common.by import By
 #from webdriver_manager.chrome import ChromeDriverManager
 #from webdriver_manager.firefox import GeckoDriverManager
 #from webdriver_manager.microsoft import IEDriverManager
-#from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options
 
 
 import pytest
@@ -18,11 +18,11 @@ class TestChrome():
     #     driver = webdriver.Chrome(ChromeDriverManager().install())
         # driver = webdriver.Ie(IEDriverManager().install())
         # driver = webdriver.Chrome()
-        driver = webdriver.Chrome(ChromeDriverManager().install())
+        #driver = webdriver.Chrome(ChromeDriverManager().install())
 
-        # chrome_options = Options()
-        # chrome_options.add_argument('--headless')
-        # driver = webdriver.Chrome(options=chrome_options)
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        driver = webdriver.Chrome(options=chrome_options)
 
         driver.implicitly_wait(2)
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
