@@ -41,4 +41,4 @@ jobs:
 
     
     - name: Test with pytest
-      run: python -m pytest tests/
+      run: py.test tests/ -vv
