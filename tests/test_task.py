@@ -59,7 +59,7 @@ class TestChrome():
 
         # bodyText = driver.find_element(By.XPATH, "//span[contains(text(),'Document signed')]")
         bodyText = driver.find_element_by_tag_name("h1")
-        assert bodyText.text == "Document signed!"
+        assert bodyText.text == "Document abcsigned!"
         print("confirmation done")
 
 
