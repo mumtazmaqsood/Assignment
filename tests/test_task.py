@@ -42,7 +42,9 @@ class TestChrome():
 
         driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
         time.sleep(2)
+        print("name has been entered")
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+        print("button clicked")
         time.sleep(2)
         # for screen shot
         # ----------------------------
@@ -52,10 +54,13 @@ class TestChrome():
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
         time.sleep(2)
+        
+
 
         # bodyText = driver.find_element(By.XPATH, "//span[contains(text(),'Document signed')]")
-        # bodyText = driver.find_element_by_tag_name("h1")
-        # assert bodyText.text == "Document signed!"
+        bodyText = driver.find_element_by_tag_name("h1")
+        assert bodyText.text == "Document signed!"
+        print("confirmation done")
 
 
 
@@ -103,11 +108,7 @@ class TestFirefox():
         # bodyText = driver.find_element(By.XPATH, "//span[contains(text(),'Document signed')]")
         bodyText = driver.find_element_by_tag_name("h1")
         assert bodyText.text == "Document signed!"
-        # if(bodyText.text == "Document signed!"):
-        #     print("Found")
-        # else:
-        #     print("Not Found")
-
+        
 
 
 
