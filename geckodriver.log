@@ -281,3 +281,21 @@ JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEven
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1613130585123	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\mumtaz\\AppData\\Local\\Temp\\rust_mozprofileHQgxns"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1613130594607	Marionette	INFO	Listening on port 57715
+1613130594791	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613130594811	Marionette	ERROR	[24] No reply from Marionette:Register
+1613130594811	Marionette	ERROR	[18] No reply from Marionette:Register
+1613130607519	Marionette	INFO	Stopped listening on port 57715
+JavaScript error: , line 0: AbortError: Actor 'ASRouter' destroyed before query 'NEWTAB_MESSAGE_REQUEST' was resolved
+[Child 17800, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:545
+[Child 17800, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:545

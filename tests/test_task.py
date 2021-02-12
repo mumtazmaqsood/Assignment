@@ -5,6 +5,7 @@ import time
 from webdriver_manager.firefox import GeckoDriverManager
 # from webdriver_manager.microsoft import IEDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 
 import pytest
@@ -68,7 +69,12 @@ class TestFirefox():
         # driver = webdriver.Ie(IEDriverManager().install())
         # driver = webdriver.Chrome()
         # driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
+        options = FirefoxOptions()
+        options.add_argument("--headless")
+        driver = webdriver.Firefox(options=options)
+
         driver.implicitly_wait(2)
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
         driver.maximize_window()
