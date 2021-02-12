@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       selenium:
-        image: selenium/standalone-chrome
+        image: selenium/standalone-chrome, selenium/standalone-firefox
 
     steps:
     - uses: actions/checkout@v1
