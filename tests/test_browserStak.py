@@ -4,6 +4,10 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import pytest
 import time
 import urllib3
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 
 desired_cap = {
@@ -42,22 +46,30 @@ class TestChrome():
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
         time.sleep(2)
-        parentHandle = driver.current_window_handle
-        print("Parent Handle: " + parentHandle)
-        # Switch to window and search course
-        handles = driver.window_handles
-        for handle in handles:
-            print("Handle: " + handle)
-            if handle not in parentHandle:
-                driver.switch_to.window(handle)
-                print("Switched to window:: " + handle)
-                break
-
-
+        # parentHandle = driver.current_window_handle
+        # print("Parent Handle: " + parentHandle)
+        # # Switch to window and search course
+        # handles = driver.window_handles
+        # for handle in handles:
+        #     print("Handle: " + handle)
+        #     if handle not in parentHandle:
+        #         driver.switch_to.window(handle)
+        #         print("Switched to window:: " + handle)
+        #         break
 
         # for screen shot
         # ----------------------------
-        # S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
-        # driver.set_window_size(S('Width'), S('Height'))
-        # driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-in1.png')
+        S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
+        driver.set_window_size(S('Width'), S('Height'))
+        driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-in1.png')
+        driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
+        driver.forward()
+        timeout = 5
+        try:
+            element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
+            a = WebDriverWait(driver, timeout).until(element_present)
+            assert a.text == "Document signed!"
 
+        except TimeoutException:
+            print
+            "Timed out waiting for page to load"

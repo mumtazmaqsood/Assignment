@@ -26,11 +26,8 @@ driver.maximize_window()
 
 # --------------------End-----------------------------------------------------------------
 
-
-
 driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
 time.sleep(2)
-
 driver.find_element_by_xpath("//a[@class='button button-block action']").click()
 time.sleep(2)
 # getAll_button = driver.find_elements(By.XPATH, '//a')
@@ -59,6 +56,56 @@ time.sleep(2)
 
 # for screen shot
 # ----------------------------
+
+# --------------Dynamic Browser------------------------
+# -------------------------------------------------------------------------------------
+# def test_setup(self):
+#     global driver
+# # Automatically download latest webdriver and save in cache
+# # https://staging.scrive.com/t/9221714692410699950/7348c782641060a9
+# #     browserName = "firefox"
+# #     if browserName == "chrome":
+# #         driver = webdriver.Chrome(ChromeDriverManager().install())
+# #     elif browserName == "firefox":
+# #         driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+# #     elif browserName == "safri":
+# #         driver = webdriver.safari()
+# #     else:
+# #         print("Enter correct borwser name"+browserName)
+# #         raise Exception("Driver is not Found")
+#     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+#     driver.implicitly_wait(2)
+#     driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
+#     driver.maximize_window()
+#     yield
+#     driver.close()
+#     driver.quit()
+#     print("test completed")
+#
+#
+# # --------------------End-----------------------------------------------------------------
+#
+# def test_enterName(self, test_setup):
+#
+#     driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
+#     time.sleep(2)
+#     driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+#     time.sleep(2)
+#     # for screen shot
+#     # ----------------------------
+#     S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
+#     driver.set_window_size(S('Width'), S('Height'))
+#     driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-in.png')
+#     time.sleep(2)
+#
+#     driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
+#     time.sleep(4)
+#     bodyText = driver.find_element_by_tag_name("h1")
+#     assert bodyText.text == "Document signed!"
+
+# -----------------------------------------------------
+
+
 
 driver.close()
 driver.quit()
