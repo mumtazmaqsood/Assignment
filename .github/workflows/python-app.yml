@@ -50,7 +50,7 @@ jobs:
     - name: Test with pytest
       run: py.test tests/ -v -s  
     - name: Coverage 
-      run : coverage run tests/test_chrome.py
+      run : coverage run tests/
     - name: coverage report
       run : coverage report
         #      run: py.test tests/ -v -s --html=./reports/report.html --self-contained-html
