@@ -32,6 +32,7 @@ jobs:
         pip install selenium
         pip install webdriver-manager
         pip install pytest
+        pip install pytest-html
 
     - name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
@@ -44,4 +45,4 @@ jobs:
 #        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
 
     - name: Test with pytest
-      run: py.test tests/ -vv
+      run: py.test tests/ -v -s --html=./report.html
