@@ -22,7 +22,8 @@ desired_cap = {
 }
 
 
-class TestBrowserStack_IE11():
+# class TestBrowserStack_IE11():
+class BrowserStack_IE11():
     @pytest.fixture()
     def test_setup(self):
         global driver
