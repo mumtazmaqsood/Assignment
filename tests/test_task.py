@@ -1,7 +1,7 @@
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
-# from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 #from webdriver_manager.firefox import GeckoDriverManager
 #from webdriver_manager.microsoft import IEDriverManager
 from selenium.webdriver.chrome.options import Options
@@ -20,14 +20,14 @@ class TestChrome():
         # driver = webdriver.Ie(IEDriverManager().install())
         # driver = webdriver.Chrome()
 
-        # driver = webdriver.Chrome(ChromeDriverManager().install())
+        driver = webdriver.Chrome(ChromeDriverManager().install())
 
         #driver = webdriver.Chrome(ChromeDriverManager().install())
 
         # chrome_options = Options()
         # chrome_options.add_argument('--headless')
         # driver = webdriver.Chrome(options=chrome_options)
-        driver = webdriver.Chrome(executable_path="../../Assignment/driver/chromedriver.exe")
+        # driver = webdriver.Chrome(executable_path="../../Assignment/driver/chromedriver.exe")
         driver.implicitly_wait(2)
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
         driver.maximize_window()
@@ -56,11 +56,10 @@ class TestChrome():
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
         time.sleep(2)
 
-        print("confirmation done")
-
-        # bodyText = driver.find_element(By.XPATH, "//span[contains(text(),'Document signed')]")
+        time.sleep(2)
         bodyText = driver.find_element_by_tag_name("h1")
         assert bodyText.text == "Document signed!"
+
         print("confirmation done")
 
 
