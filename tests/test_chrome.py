@@ -27,16 +27,15 @@ class TestChrome():
 # -------------and uncomment lines 36,37,38 -------------------------
 
         # driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver = webdriver.Chrome()
+        # driver = webdriver.Chrome()
+
 
 # ------------ End comment below line if you want to run test headless mode-------------------------
 
-
-
 # ------------comment these 3 lines if you want to run test in browser and uncommet 29---------------
-#         chrome_options = Options()
-#         chrome_options.add_argument('--headless')
-#         driver = webdriver.Chrome(options=chrome_options)
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        driver = webdriver.Chrome(options=chrome_options)
 # ------------ End comment these 3 lines if you want to run test in browser-------------------------
 
         driver.implicitly_wait(2)
