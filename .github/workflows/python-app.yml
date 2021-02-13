@@ -15,10 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     services:
       selenium:
-        image: selenium/standalone-chrome
+        image: selenium/standalone-chrome:4.0.0-beta-1-prerelease-20210210
         ports:
-          - 4444:4444        
-
+          - 4444:4444
+        volumes:
+          - /dev/shm:/dev/shm        
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.7
