@@ -59,9 +59,9 @@ class TestFirefox():
         time.sleep(2)
         # for screen shot
         # ----------------------------
-        S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
-        driver.set_window_size(S('Width'), S('Height'))
-        driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-in.png')
+        # S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
+        # driver.set_window_size(S('Width'), S('Height'))
+        driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-firefox.png')
         # time.sleep(4)
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
         time.sleep(4)

@@ -22,7 +22,7 @@ desired_cap = {
 }
 
 
-class TestChrome():
+class TestBrowserStack_IE11():
     @pytest.fixture()
     def test_setup(self):
         global driver
@@ -40,30 +40,17 @@ class TestChrome():
 
     # --------------------End-----------------------------------------------------------------
 
-    def test_enterName(self, test_setup):
+    def test_enterName1(self, test_setup):
 
         driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
         time.sleep(2)
-        # parentHandle = driver.current_window_handle
-        # print("Parent Handle: " + parentHandle)
-        # # Switch to window and search course
-        # handles = driver.window_handles
-        # for handle in handles:
-        #     print("Handle: " + handle)
-        #     if handle not in parentHandle:
-        #         driver.switch_to.window(handle)
-        #         print("Switched to window:: " + handle)
-        #         break
-
         # for screen shot
         # ----------------------------
-        S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
-        driver.set_window_size(S('Width'), S('Height'))
-        driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-in1.png')
+        # driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('browserStack.png')
+        # time.sleep(4)
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
-        driver.forward()
         timeout = 5
         try:
             element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
