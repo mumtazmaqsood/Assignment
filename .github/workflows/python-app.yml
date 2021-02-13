@@ -13,9 +13,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    services:
-      selenium:
-        image: selenium/standalone-chrome
+#     services:
+#       selenium:
+#         image: selenium/standalone-chrome,
+    
 
     steps:
     - uses: actions/checkout@v1
@@ -32,12 +33,12 @@ jobs:
     - name: Prepare for selenium
       uses: nanasess/setup-chromedriver@master
     
-    - name: Lunch Browser
-      run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+#     - name: Lunch Browser
+#       run: |
+#           export DISPLAY=:99
+#           chromedriver --url-base=/wd/hub &
+#           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
     
     - name: Test with pytest
-      run: python -m pytest tests/
+      run: py.test tests/ -vv

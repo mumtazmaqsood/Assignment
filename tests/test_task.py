@@ -44,6 +44,7 @@ class TestChrome():
         time.sleep(2)
         print("name has been entered")
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+        print("button clicked")
         time.sleep(2)
         print("button clicked")
         # for screen shot
@@ -54,11 +55,18 @@ class TestChrome():
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
         time.sleep(2)
+
         print("confirmation done")
 
         # bodyText = driver.find_element(By.XPATH, "//span[contains(text(),'Document signed')]")
         bodyText = driver.find_element_by_tag_name("h1")
         assert bodyText.text == "Document signed!"
+        print("confirmation done")
+
+
+
+
+
 
 
 
@@ -110,10 +118,6 @@ class TestChrome():
 #         #     print("Found")
 #         # else:
 #         #     print("Not Found")
-
-
-
-
 
 
     # -------------------------------------------------------------------------------------
