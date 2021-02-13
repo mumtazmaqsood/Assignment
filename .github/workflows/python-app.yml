@@ -47,7 +47,9 @@ jobs:
 #        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
 
     - name: Test with pytest
-      run: py.test tests/ -v -s  --cov=app test/ > pytest-coverage.txt
-    - name: Comment coverage
+      run: py.test tests/ -v -s  --cov= pytest-coverage.txt
+    - name: pytest-coverage-commentator
       uses: coroo/pytest-coverage-commentator@v1.0.2
-#      run: py.test tests/ -v -s --html=./reports/report.html --self-contained-html
+      with:
+        pytest-coverage: pytest-coverage.txt
+        #      run: py.test tests/ -v -s --html=./reports/report.html --self-contained-html
