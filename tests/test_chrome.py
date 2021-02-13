@@ -26,8 +26,8 @@ class TestChrome():
 # ------------comment below line if you want to run test headless mode
 # -------------and uncomment lines 36,37,38 -------------------------
 
-        # driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+#         driver = webdriver.Chrome()
 
 # ------------ End comment below line if you want to run test headless mode-------------------------
 
