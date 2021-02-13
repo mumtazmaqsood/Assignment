@@ -39,6 +39,7 @@ class TestChrome():
 # ------------ End comment these 3 lines if you want to run test in browser-------------------------
 
         driver.implicitly_wait(2)
+        print("Chrome Testing Started")
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
         driver.maximize_window()
         yield
@@ -49,7 +50,7 @@ class TestChrome():
 # --------------------End-----------------------------------------------------------------
 
     def test_enterName(self, test_setup):
-
+        # Enter Full name
         driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
         time.sleep(2)
         print("name has been entered")

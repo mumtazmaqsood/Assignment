@@ -41,6 +41,7 @@ class TestFirefox():
         driver.implicitly_wait(2)
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
         driver.maximize_window()
+        print("FireFox Testing Started")
         yield
         driver.close()
         driver.quit()
