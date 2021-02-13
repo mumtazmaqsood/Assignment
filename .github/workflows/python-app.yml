@@ -35,6 +35,7 @@ jobs:
         pip install pytest-html
         pip install pytest-cov
         pip install pytest-xdist
+        pip install coverage
 
     - name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
@@ -47,9 +48,9 @@ jobs:
 #        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
 
     - name: Test with pytest
-      run: py.test tests/ -v -s  --cov= pytest-coverage.txt
-    - name: pytest-coverage-commentator
-      uses: coroo/pytest-coverage-commentator@v1.0.2
-      with:
-        pytest-coverage: pytest-coverage.txt
+      run: py.test tests/ -v -s  
+    - name: Coverage 
+      run : coverage run app.py
+    - name: coverage report
+      run : coverage report
         #      run: py.test tests/ -v -s --html=./reports/report.html --self-contained-html
