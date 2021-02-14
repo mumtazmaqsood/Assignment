@@ -49,10 +49,11 @@
 
 # Test Result
     Test results avaliable in 
-    Repo Actions
+    1- Repo Actions
         -- All workflows and check all results and test cases coverage 
     
-    Allure Report is avaliable on localhost, need to configure and installed on local computer and then avaliable on http://192.168.99.1:59313/index.html 
+    2- Allure Report is avaliable on localhost, need to configure and installed on local 
+    computer and then avaliable on http://192.168.99.1:59313/index.html 
     this report is showing all testing activities and capturing, displaying captured images with description
 
 
