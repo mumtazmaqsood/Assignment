@@ -1,3 +1,5 @@
+import allure
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
@@ -40,6 +42,7 @@ class TestFirefox():
 
         driver.implicitly_wait(2)
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
+        allure.attach(driver.get_screenshot_as_png(), name="URL", attachment_type=AttachmentType.PNG)
         driver.maximize_window()
 
         yield
@@ -54,10 +57,12 @@ class TestFirefox():
 
     def test_enterName1(self, test_setup1):
 
-        driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
+        driver.find_element_by_xpath("//input[@id='name']").send_keys("Mumtaz")
+        allure.attach(driver.get_screenshot_as_png(), name="Enter Name", attachment_type=AttachmentType.PNG)
         print("Name entered")
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+        allure.attach(driver.get_screenshot_as_png(), name="Next Button Clicked", attachment_type=AttachmentType.PNG)
         print("Next Button clicked")
         time.sleep(2)
         # for screen shot
@@ -65,9 +70,11 @@ class TestFirefox():
         # S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
         # driver.set_window_size(S('Width'), S('Height'))
         driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-firefox.png')
+        allure.attach(driver.get_screenshot_as_png(), name="ScreenShot taken", attachment_type=AttachmentType.PNG)
         # time.sleep(4)
         print("Screenshot taken ")
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
+        allure.attach(driver.get_screenshot_as_png(), name="Sign", attachment_type=AttachmentType.PNG)
         print("Sign button clicked")
         time.sleep(4)
 
@@ -76,6 +83,7 @@ class TestFirefox():
             element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
             a = WebDriverWait(driver, timeout).until(element_present)
             assert a.text == "Document signed!"
+            allure.attach(driver.get_screenshot_as_png(), name="text validation", attachment_type=AttachmentType.PNG)
             print(f"{a.text}:present")
 
         except TimeoutException:

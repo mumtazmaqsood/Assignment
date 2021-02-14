@@ -1,3 +1,4 @@
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
@@ -6,14 +7,14 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import allure
 
 
 
 
 
 import pytest
-
+@allure.severity(allure.severity_level.NORMAL)
 class TestChrome():
     @pytest.fixture()
     def test_setup(self):
@@ -41,6 +42,7 @@ class TestChrome():
         driver.implicitly_wait(2)
         print("Chrome Testing Started")
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
+        allure.attach(driver.get_screenshot_as_png(), name="URL", attachment_type= AttachmentType.PNG)
         driver.maximize_window()
         yield
         driver.close()
@@ -51,10 +53,12 @@ class TestChrome():
 
     def test_enterName(self, test_setup):
         # Enter Full name
-        driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
+        driver.find_element_by_xpath("//input[@id='name']").send_keys("Dan")
+        allure.attach(driver.get_screenshot_as_png(), name="Enter Name", attachment_type=AttachmentType.PNG)
         time.sleep(2)
         print("Name entered")
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+        allure.attach(driver.get_screenshot_as_png(), name="Next Button Clicked", attachment_type=AttachmentType.PNG)
         print("Next Button clicked")
         time.sleep(2)
 
@@ -64,8 +68,10 @@ class TestChrome():
 #         driver.set_window_size(S('Width'), S('Height'))
         driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-chrome.png')
         time.sleep(2)
+        allure.attach(driver.get_screenshot_as_png(), name="ScreenShot taken", attachment_type=AttachmentType.PNG)
         print("Screenshot taken ")
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
+        allure.attach(driver.get_screenshot_as_png(), name="Sign", attachment_type=AttachmentType.PNG)
         time.sleep(2)
         print("Sign button clicked")
 # -----------------------End Taking Screen Shot-------------------------------------------
@@ -76,6 +82,7 @@ class TestChrome():
             element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
             a = WebDriverWait(driver, timeout).until(element_present)
             assert a.text == "Document signed!"
+            allure.attach(driver.get_screenshot_as_png(), name="text validation", attachment_type=AttachmentType.PNG)
             print(f"{a.text}:present")
         except TimeoutException:
             print
@@ -86,3 +93,7 @@ class TestChrome():
 # run test pytest -v for more detail'
 #pip install pytest-xdist for parallel testing
 # run: py.test tests/ -v -s --cov --cov-report=html
+
+# Allure reports
+# py.test tests/test_chrome.py -v -s --alluredir=./reports
+# then C:\Allure\bin>allure serve F:\scrive\Assignment\reports
