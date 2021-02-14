@@ -37,7 +37,9 @@ jobs:
         pip install pytest-xdist
         pip install coverage
         pip install pytest-cov
-
+        sudo apt-add-repository ppa:qameta/allure
+        sudo apt-get update 
+        sudo apt-get install allure
     - name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
       uses: nanasess/setup-chromedriver@master
@@ -50,7 +52,8 @@ jobs:
 
     - name: Test with pytest
 #       for test coverage
-      run: py.test tests/ -v -s --cov
+      run: py.test tests/test_chrome.py -v -s --cov --alluredir=./reports
+#       run: py.test tests/ -v -s --cov
 #        for html test coverage report
 ## run: py.test tests/ -v -s --cov --cov-report=html
 # for code coverage report
