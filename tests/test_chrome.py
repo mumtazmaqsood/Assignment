@@ -53,19 +53,21 @@ class TestChrome():
         # Enter Full name
         driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
         time.sleep(2)
-        print("name has been entered")
+        print("Name entered")
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
-        print("button clicked")
+        print("Next Button clicked")
         time.sleep(2)
-        print("button clicked")
+
 
 # -----------------------Taking Screen Shot-------------------------------------------
 #         S = lambda X: driver.execute_script("return document.body.parentNode.scroll"+X)
 #         driver.set_window_size(S('Width'), S('Height'))
         driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-chrome.png')
         time.sleep(2)
+        print("Screenshot taken ")
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
         time.sleep(2)
+        print("Sign button clicked")
 # -----------------------End Taking Screen Shot-------------------------------------------
 
 # ----------------Validating text 'Document singed!'-------------------------------------
@@ -74,7 +76,7 @@ class TestChrome():
             element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
             a = WebDriverWait(driver, timeout).until(element_present)
             assert a.text == "Document signed!"
-
+            print(f"{a.text}:present")
         except TimeoutException:
             print
             "Timed out waiting for page to load"
@@ -83,3 +85,4 @@ class TestChrome():
 
 # run test pytest -v for more detail'
 #pip install pytest-xdist for parallel testing
+# run: py.test tests/ -v -s --cov --cov-report=html

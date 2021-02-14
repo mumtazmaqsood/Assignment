@@ -41,7 +41,7 @@ class TestFirefox():
         driver.implicitly_wait(2)
         driver.get("https://staging.scrive.com/t/9221714692410699950/7348c782641060a9")
         driver.maximize_window()
-        print("FireFox Testing Started")
+
         yield
         driver.close()
         driver.quit()
@@ -55,8 +55,10 @@ class TestFirefox():
     def test_enterName1(self, test_setup1):
 
         driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
+        print("Name entered")
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+        print("Next Button clicked")
         time.sleep(2)
         # for screen shot
         # ----------------------------
@@ -64,7 +66,9 @@ class TestFirefox():
         # driver.set_window_size(S('Width'), S('Height'))
         driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('sign-firefox.png')
         # time.sleep(4)
+        print("Screenshot taken ")
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
+        print("Sign button clicked")
         time.sleep(4)
 
         timeout = 5
@@ -72,6 +76,7 @@ class TestFirefox():
             element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
             a = WebDriverWait(driver, timeout).until(element_present)
             assert a.text == "Document signed!"
+            print(f"{a.text}:present")
 
         except TimeoutException:
             print

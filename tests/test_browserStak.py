@@ -43,19 +43,24 @@ class TestBrowserStack_IE11():
     def test_enterName1(self, test_setup):
 
         driver.find_element_by_xpath("//input[@id='name']").send_keys("test")
+        print("Name entered")
         time.sleep(2)
         driver.find_element_by_xpath("//a[@class='button button-block action']").click()
+        print("Next Button clicked")
         time.sleep(2)
         # for screen shot
         # ----------------------------
         # driver.find_element_by_xpath("//div[@class='col-xs-6 center-block']").screenshot('browserStack.png')
         # time.sleep(4)
+        # print("Screenshot taken ")
         driver.find_element_by_xpath("//a[@class='button button-block sign-button action']").click()
+        print("Sign button clicked")
         timeout = 5
         try:
             element_present = EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Document signed')]"))
             a = WebDriverWait(driver, timeout).until(element_present)
             assert a.text == "Document signed!"
+            print(f"{a.text}:present")
 
         except TimeoutException:
             print
