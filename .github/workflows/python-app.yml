@@ -37,6 +37,7 @@ jobs:
         pip install pytest-xdist
         pip install coverage
         pip install pytest-cov
+        pip install allure-pytest
         
     - name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
