@@ -24,7 +24,7 @@
     pip install coverage
     pip install pytest-cov
 
-  Run Test
+  # Run Test
   py.test tests/ -v -s --cov
 
 
@@ -46,8 +46,10 @@
     Make the test runnable on IE11 on Browserstack ----------------------------- Done
     Document how to run the test on Ubuntu ------------------------------------- Build CI by using GitHub action 
 
-
-
+# Test Result
+    Test results avaliable in 
+    Repo Actions
+        -- All workflows and check all results 
 
 
 
