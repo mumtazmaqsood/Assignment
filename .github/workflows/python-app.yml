@@ -55,13 +55,13 @@ jobs:
       uses: afiore/action-allure-report@v0.1.0
       with:
       # Allure test result data dir
-        results-dir: ./ 
+        results-dir: ./reports 
       # Allure report target dir
-        report-dir: ./reports
+        report-dir: ./tests
     
     - name: Test with pytest
 #       for test coverage
-      run: py.test tests/ -v -s --cov
+      run: py.test tests/ -v -s --cov --alluredir=./reports
 #       run: py.test tests/ -v -s --cov
 #        for html test coverage report
 ## run: py.test tests/ -v -s --cov --cov-report=html
