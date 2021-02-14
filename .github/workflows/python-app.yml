@@ -49,8 +49,21 @@ jobs:
 
     - name: Test with pytest
       run: py.test tests/ -v -s  
-    - name: Coverage 
-      run : coverage run tests/test_chrome.py::TestChrome tests/test_firefox.py::TestFirefox -v -s
-    - name: coverage report
+    - name: BrowserStack Test Coverage 
+      run : coverage run tests/test_browserStak.py
+    
+    - name: BrowserStack coverage report
+      run : coverage report
+      
+    - name: Chrome Test Coverage 
+      run : coverage run tests/test_chrome.py
+    
+    - name: Chrome coverage report
+      run : coverage report
+      
+    - name: FireFox Test Coverage 
+      run : coverage run tests/test_firefox.py
+    
+    - name: FireFox coverage report
       run : coverage report
         #      run: py.test tests/ -v -s --html=./reports/report.html --self-contained-html
