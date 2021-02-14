@@ -53,17 +53,17 @@ jobs:
       run : coverage run tests/test_browserStak.py
     
     - name: BrowserStack coverage report
-      run : coverage report
+      run : coverage report -m
       
     - name: Chrome Test Coverage 
       run : coverage run tests/test_chrome.py
     
     - name: Chrome coverage report
-      run : coverage report
+      run : coverage report -m
       
     - name: FireFox Test Coverage 
       run : coverage run tests/test_firefox.py
     
     - name: FireFox coverage report
-      run : coverage report
+      run : coverage report -m
         #      run: py.test tests/ -v -s --html=./reports/report.html --self-contained-html
