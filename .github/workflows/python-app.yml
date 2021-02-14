@@ -52,7 +52,7 @@ jobs:
 
     - name: Test with pytest
 #       for test coverage
-      run: py.test tests/test_chrome.py -v -s --cov --alluredir=./reports
+      run: py.test tests/ -v -s --cov
 #       run: py.test tests/ -v -s --cov
 #        for html test coverage report
 ## run: py.test tests/ -v -s --cov --cov-report=html
