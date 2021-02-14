@@ -1,8 +1,8 @@
 # Assignment
 
     Description: 
-      Test cases has been written according to requirement and also build CI by using Github actions on ubuntu server 
-      and also showing test coverge results.
+      Test cases has been written according to requirement and also build CI by using Github actions on ubuntu 
+      server and also showing test coverge results.
       Test cases are running both with headless on Chrome & Firefox and also integrated with BrowserStack(IE11).
   
     Tests Files (For code review):
@@ -35,7 +35,8 @@
     2- Fill in the full name in the document.
     3- Click on Next
     4- There should be a confirmation modal (the one that has text "by clicking the button you will..."). 
-    Take a screenshot of this confirmation modal and try to make it only show what is actually visible in the modal (not the whole web page).
+    Take a screenshot of this confirmation modal and try to make it only show what is actually visible in
+    the modal (not the whole web page).
     5- Sign the document
     6- Verify that there is a text “Document Signed” on the screen.
 
