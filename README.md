@@ -58,7 +58,7 @@
     this report is showing all testing activities and capturing, displaying captured images with description
     
     <p align="center">
-        <img src="reports/action_result.png" width="350" title="hover text">
+        <img src="F:\scrive\Assignment\reports\action_result.png" width="350" title="hover text">
         <img src="sign-chrome.png" width="350" alt="accessibility text">
     </p>
 
