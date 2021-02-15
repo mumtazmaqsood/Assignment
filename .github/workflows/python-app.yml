@@ -37,7 +37,8 @@ jobs:
         pip install pytest-xdist
         pip install coverage
         pip install pytest-cov
-
+        pip install allure-pytest
+        
     - name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
       uses: nanasess/setup-chromedriver@master
@@ -47,10 +48,11 @@ jobs:
 #        export DISPLAY=:99
 #        chromedriver --url-base=/wd/hub &
 #        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
-
+    
     - name: Test with pytest
 #       for test coverage
-      run: py.test tests/ -v -s --cov
+      run: py.test tests/ -v -s --cov --alluredir=./reports
+#       run: py.test tests/ -v -s --cov
 #        for html test coverage report
 ## run: py.test tests/ -v -s --cov --cov-report=html
 # for code coverage report

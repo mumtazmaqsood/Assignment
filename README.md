@@ -2,7 +2,7 @@
 
     Description: 
       Test cases has been written according to requirement and also build CI by using Github actions on ubuntu 
-      server and also showing test coverge results.
+      server and also showing test coverge results and Allure Reports integrated.
       Test cases are running both with headless on Chrome & Firefox and also integrated with BrowserStack(IE11).
   
     Tests Files (For code review):
@@ -23,9 +23,10 @@
     pip install pytest-xdist
     pip install coverage
     pip install pytest-cov
+ 
 
   # Run Test
-  py.test tests/ -v -s --cov
+  py.test tests/ -v -s --cov --alluredir=./reports
 
 
 
@@ -48,8 +49,13 @@
 
 # Test Result
     Test results avaliable in 
-    Repo Actions
-        -- All workflows and check all results 
+
+    1- Repo Actions
+        -- All workflows and check all results and test cases coverage 
+    
+    2- Allure Report is avaliable on localhost, need to configure and installed on local 
+    computer and then avaliable on http://192.168.99.1:59313/index.html 
+    this report is showing all testing activities and capturing, displaying captured images with description
     
     <p align="center">
         <img src="reports/action_result.png" width="350" title="hover text">
