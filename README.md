@@ -57,10 +57,8 @@
     computer and then avaliable on http://192.168.99.1:59313/index.html 
     this report is showing all testing activities and capturing, displaying captured images with description
     
-    <p align="center">
-        <img src="reports/action_result.png" width="350" title="hover text">
-        <img src="sign-chrome.png" width="350" alt="accessibility text">
-    </p>
+    ![action_result](https://user-images.githubusercontent.com/18198800/107922596-8860d600-6f70-11eb-83dd-f63a60ece10a.png)
+
 
 
 
