@@ -50,6 +50,11 @@
     Test results avaliable in 
     Repo Actions
         -- All workflows and check all results 
+    
+    <p align="center">
+        <img src="reports/action_result.png" width="350" title="hover text">
+        <img src="sign-chrome.png" width="350" alt="accessibility text">
+    </p>
 
 
 
